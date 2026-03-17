@@ -1,0 +1,137 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/KaushanScript-Regular.ttf",
+      "sha1": "8b203c70f9c8f5d437eb5a87a6c7df39fb2996b7"
+    },
+    {
+      "path": "src/assets/fonts/Pacifico-Regular.ttf",
+      "sha1": "baca1fca7fe74b61cb33aa0da48ec1a3a77bcf49"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+      "sha1": "4e77868439280fb434d4697c7b911271406c81f3"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+      "sha1": "12b5670eb178138f77285d5f2c246d3cc5fa67d6"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+      "sha1": "91d377ea3cf47490b256c2ed081704a7dabdae0c"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+      "sha1": "e6604258b1ced5efd51360875d782fca65381d47"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+      "sha1": "13b1eab65a983c7a73bc7997c479d66943f7c6cb"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+      "sha1": "3fa2d67cef22da5c3f3eb5730c6afbd6fecf0372"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+      "sha1": "7d849a3981a716e2ba4a84634bc57d0b8054a6a3"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+      "sha1": "c1b9fae262f42868c075ac865a8ab34920e20a2c"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/FontAwesome6_Brands.ttf",
+      "sha1": "7ce89c71d5a51ac65b159c71422783dd86529c66"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/FontAwesome6_Regular.ttf",
+      "sha1": "775e2ecfc18d22b177274453d4c014ca6be63208"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/FontAwesome6_Solid.ttf",
+      "sha1": "2b8e11389d98122399667cf64941eb58497dc128"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+      "sha1": "c090a3ec96a3f1bb9b615c2f3f204ce0dcdcdbc3"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+      "sha1": "4b2bce6c792493a4a5716b6fec2dbefe89492c3f"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+      "sha1": "86e07c3d974eb09099e6e5a9b3b8310303cf0feb"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+      "sha1": "4c2a838b00dbb5e8bb1b368fce0de534e8eb241c"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+      "sha1": "7e02c3f005532ff4d24148567c84089756a7848a"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+      "sha1": "56acefc0731f35ee23b195b1c8cb5fa94a0db97b"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+      "sha1": "9ffb81a5a11112e292f2cc323e98486bad597599"
+    },
+    {
+      "path": "node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+      "sha1": "6a48a962b06cc3acbdfd61df0d9a34744eea5e8d"
+    },
+    {
+      "path": "src/assets/animations/biometric.json",
+      "sha1": "800fba7aed78015ecb5f16968902686949452201"
+    },
+    {
+      "path": "src/assets/animations/faceidcapture.json",
+      "sha1": "bf1c45944dbd373817a48aa9edab538f34a530f0"
+    },
+    {
+      "path": "src/assets/animations/login.gif",
+      "sha1": "61fd6bb8fc84966ebfafc7c0f65b186d9b82c24c"
+    },
+    {
+      "path": "src/assets/animations/login.json",
+      "sha1": "60acf3c307a153e057371b1933fea0f892810624"
+    },
+    {
+      "path": "src/assets/animations/otp.json",
+      "sha1": "8e3358bc89820f8ebd861503a672e5e72b910318"
+    },
+    {
+      "path": "src/assets/animations/signup.gif",
+      "sha1": "8f5d2d57a324ddb463efdd6dd2ebde4e8539a15b"
+    },
+    {
+      "path": "src/assets/animations/signup.json",
+      "sha1": "3c9444882e00ba6e7770a2fd7be63b7c0cd42f98"
+    },
+    {
+      "path": "src/assets/images/fingerprint.png",
+      "sha1": "0b49da7455b72ef4a664a4b94de9b353ffb1fd47"
+    },
+    {
+      "path": "src/assets/images/logoapp.png",
+      "sha1": "86cfe0360a8a2179e87eb2609320d8f5ac8ff9bb"
+    },
+    {
+      "path": "src/assets/images/logoapp3.png",
+      "sha1": "0e38bf1f087e1b1054b4a76980660218796cd373"
+    },
+    {
+      "path": "src/assets/images/logoapp3.zip",
+      "sha1": "a5483b6ae99d38997dce871f95d2d39dc825ba0c"
+    },
+    {
+      "path": "src/assets/images/logosecure.png",
+      "sha1": "f965b45e5c6f858f23709fe270f42047fbbd8fa1"
+    }
+  ]
+}
