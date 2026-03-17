@@ -12,6 +12,9 @@ import LoginScreen    from '../screens/LoginScreen';
 import SignUpScreen   from '../screens/SignUpScreen';
 import Fingerprint    from '../screens/FingerprintScreen';
 import OTPEnterScreen from '../screens/OTPEnterScreen';
+import PasswordResetScreen from '../screens/PasswordResetScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import BeneficiariesScreen from '../screens/BeneficiariesScreen';
 import DrawerNavigator from './DrawerNavigator';
 import SendFormScreen       from '../screens/SendFormScreen';
 import FaceIDAuthScreen     from '../screens/FaceIDAuthScreen';
@@ -37,6 +40,7 @@ function AppNavigator() {
   <>
     <Stack.Screen name="LoginScreen"       component={LoginScreen}/>
     <Stack.Screen name="SignUpScreen"      component={SignUpScreen}/>
+    <Stack.Screen name="PasswordResetScreen" component={PasswordResetScreen}/>
     <Stack.Screen name="FingerprintScreen" component={Fingerprint}/>
     <Stack.Screen name="OTPEnterScreen"    component={OTPEnterScreen}/>
   </>
@@ -51,6 +55,8 @@ function AppNavigator() {
       <Stack.Screen name="SenderSuccessScreen"        component={SenderSuccessScreen} />
       <Stack.Screen name="TransactionScreen"          component={TransactionScreen} />
       <Stack.Screen name="WalletScreen"               component={WalletScreen} />
+      <Stack.Screen name="SettingsScreen"             component={SettingsScreen} />
+      <Stack.Screen name="BeneficiariesScreen"        component={BeneficiariesScreen} />
     </>
   )}
 
