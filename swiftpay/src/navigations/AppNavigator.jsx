@@ -15,6 +15,8 @@ import OTPEnterScreen from '../screens/OTPEnterScreen';
 import PasswordResetScreen from '../screens/PasswordResetScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import BeneficiariesScreen from '../screens/BeneficiariesScreen';
+import CurrencyConverterScreen from '../screens/CurrencyConverterScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
 import DrawerNavigator from './DrawerNavigator';
 import SendFormScreen       from '../screens/SendFormScreen';
 import FaceIDAuthScreen     from '../screens/FaceIDAuthScreen';
@@ -57,6 +59,8 @@ function AppNavigator() {
       <Stack.Screen name="WalletScreen"               component={WalletScreen} />
       <Stack.Screen name="SettingsScreen"             component={SettingsScreen} />
       <Stack.Screen name="BeneficiariesScreen"        component={BeneficiariesScreen} />
+      <Stack.Screen name="CurrencyConverterScreen"    component={CurrencyConverterScreen} />
+      <Stack.Screen name="NotificationsScreen"        component={NotificationsScreen} />
     </>
   )}
 

@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+dist
+build
+.env
+.env.local
+.env.*.local
+.expo
+.expo-shared
+android
+ios
