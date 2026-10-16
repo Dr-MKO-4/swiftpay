@@ -1,0 +1,83 @@
+// Parcours Playwright (Edge) : node e2e.cjs <url> [dossier_captures]
+const { chromium } = require('M:/dev-cache/tools/pw/node_modules/playwright-core');
+const fs = require('fs');
+const BASE = process.argv[2] || 'http://localhost:4174';
+const OUT = process.argv[3];
+(async () => {
+  const origin = new URL(BASE).origin;
+  const browser = await chromium.launch({ channel: 'msedge' });
+  const errors = [], external = [];
+  const run = async (viewport, scale, tag) => {
+    const ctx = await browser.newContext({ viewport, deviceScaleFactor: scale, locale: 'fr-FR' });
+    const p = await ctx.newPage();
+    p.on('pageerror', (e) => errors.push(tag + ' pageerror ' + e.message));
+    p.on('console', (m) => { if (m.type() === 'error') errors.push(tag + ' console ' + m.text()); });
+    p.on('request', (r) => { const u = r.url(); if (!u.startsWith(origin) && !u.startsWith('data:') && !/fonts\.(googleapis|gstatic)\.com/.test(u)) external.push(u); });
+    const shot = async (n) => { if (OUT && tag === 'desk') { fs.mkdirSync(OUT, { recursive: true }); await p.screenshot({ path: `${OUT}/${n}.png` }); } };
+    await p.goto(BASE, { waitUntil: 'networkidle' });
+    await p.waitForTimeout(2800);
+    await p.getByRole('button', { name: 'Se connecter' }).click();
+    await p.getByRole('button', { name: "Toucher le capteur d'empreinte" }).click();
+    await p.waitForTimeout(900);
+    await p.getByRole('button', { name: 'Remplir avec le code reçu (démo)' }).click();
+    await p.getByRole('button', { name: 'Vérifier' }).click();
+    await p.waitForTimeout(900);
+    await p.getByText('Solde actuel').waitFor();
+    await p.waitForTimeout(4200);
+    await shot('01-dashboard');
+    // Envoi NFC
+    await p.getByRole('button', { name: 'Lancer un envoi NFC' }).click({ force: true });
+    await p.getByRole('button', { name: /Approcher le téléphone/ }).click();
+    await p.waitForTimeout(1300);
+    await shot('02b-nfc-read');
+    await p.getByRole('button', { name: 'Valider' }).waitFor({ timeout: 5000 });
+    await p.getByLabel(/Montant \(/).fill('40');
+    await p.getByRole('button', { name: 'Valider' }).click();
+    await p.getByRole('button', { name: "Toucher le capteur d'empreinte" }).click();
+    await p.getByRole('button', { name: 'Démarrer' }).waitFor();
+    await p.getByRole('button', { name: 'Démarrer' }).click();
+    await p.waitForTimeout(1650);
+    await shot('02-faceid');
+    await p.getByText('Paiement réussi').waitFor({ timeout: 12000 });
+    await p.waitForTimeout(400);
+    await shot('03-success');
+    await p.getByRole('button', { name: 'Accueil' }).click();
+    // Réception
+    await p.getByRole('button', { name: 'Recevoir' }).click();
+    await p.getByRole('button', { name: 'Se mettre en réception NFC' }).click({ force: true });
+    await p.getByRole('button', { name: /Simuler un payeur/ }).click();
+    await p.getByText(/Montant reçu/).waitFor({ timeout: 6000 });
+    await p.getByRole('button', { name: 'Terminer' }).click();
+    // Historique
+    await p.getByRole('button', { name: 'Historique' }).click();
+    await p.getByRole('button', { name: 'Sorties' }).click();
+    await p.getByRole('button', { name: 'Toutes' }).click();
+    await p.waitForTimeout(300);
+    await shot('04-transactions');
+    // Portefeuille, notifications, paramètres
+    await p.getByRole('navigation', { name: 'Navigation principale' }).getByRole('button', { name: 'Portefeuille' }).click();
+    await p.getByText('Solde du portefeuille actif').waitFor();
+    await p.getByRole('button', { name: /^XAF/ }).click();
+    await p.getByRole('button', { name: /^USD/ }).click();
+    await p.getByRole('button', { name: /^Notifications/ }).click();
+    await p.getByRole('button', { name: 'Tout marquer comme lu' }).click();
+    await p.getByRole('button', { name: 'Retour' }).click();
+    await p.getByRole('button', { name: 'Ouvrir le menu' }).click();
+    await p.getByRole('dialog', { name: 'Menu' }).getByRole('button', { name: 'Bénéficiaires' }).click();
+    await p.getByText('Boutique Exemple').waitFor();
+    await p.getByRole('button', { name: 'Retour' }).click();
+    await p.getByRole('navigation', { name: 'Navigation principale' }).getByRole('button', { name: 'Profil' }).click();
+    await p.getByRole('switch', { name: 'Thème sombre' }).click();
+    await p.waitForTimeout(300);
+    await shot('05-settings-dark');
+    const overflow = await p.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+    if (overflow) errors.push(tag + ' horizontal overflow');
+    await ctx.close();
+  };
+  await run({ width: 1440, height: 900 }, 2, 'desk');
+  await run({ width: 390, height: 844 }, 1, 'mob');
+  await browser.close();
+  console.log('errors:', errors.length ? errors : 'none');
+  console.log('external requests:', external.length ? [...new Set(external)] : 'none');
+  process.exit(errors.length || external.length ? 1 : 0);
+})().catch((e) => { console.error('FAIL', e.message); process.exit(2); });
